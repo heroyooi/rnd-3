@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퍼블리싱 - 컴포넌트 가이드</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <style>
+    .ex_wrp pre{display:none;}
+    .ex_wrp pre.guide{display:block;}
+    .ex_wrp h2{font-size:24px;}
+    .ex_wrp .section{margin-top:50px;position: relative;}
+    .ex_wrp h3{font-size:18px;padding:0 0 10px;}
+    .ex_wrp h3 button{display:inline-block;background-color:#333;color:#fff;padding:5px;border-radius:3px;font-size:12px;vertical-align:middle;}
+    .ex_wrp .code-area{padding:20px;border:1px solid #eee;margin-top:15px;}
+    .ex_wrp .code-area.bg-type{background-color:#eee;}
+
+    .component-menu{position:fixed;right:10px;top:10px;padding:10px;background-color:#fff;border:1px solid #ddd;box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.07);border-radius:5px;z-index:1;}
+    .component-menu li{font-size:14px;margin-top:10px;cursor:pointer;}
+    .component-menu li:first-child{margin-top:0;}
+    .component-menu li.on{color:#1b64c8;font-weight:500;}
+    .component-menu .component-list{margin-bottom:10px;}
+    .component-menu .btn-base a{font-size:12px;padding:3.5px 8px;width:62px;}
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <h1 class="logo"><a href="#"><span>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발</span></a></h1>
+      <ul id="gnb" data-dp1="5" data-dp2="1">
+        <li class="outlink">
+          <a href="#"><span>통합상황판</span></a>
+        </li>
+        <li>
+          <a href="#"><span>교통운영 최적화</span></a>
+        </li>
+        <li>
+          <a href="#"><span>인프라 관리</span></a>
+        </li>
+        <li>
+          <a href="#"><span>플랫폼 관리</span></a>
+        </li>
+        <li>
+          <a href="#"><span>운영 관리</span></a>
+          <ul>
+            <li><a href="#">사용자 정보</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>LDM 관리</span></a>
+        </li>
+        <li>
+          <a href="#"><span>개발자센터</span></a>
+          <ul>
+            <li><a href="#"><span>내 서비스</span></a></li>
+            <li><a href="#"><span>FAQ</span></a></li>
+            <li><a href="#"><span>Q&amp;A</span></a></li>
+            <li class="outlink"><a href="#"><span>개발 가이드</span></a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="utilmenu">
+        <li class="user"><a href="#"></a></li>
+        <li class="logout"><a href="#"></a></li>
+      </ul>
+      <div class="ui-wrap">
+        <div class="ui-header">
+          <p class="tit">사용자 정보</p>
+          <a href="#" class="btn-close"></a>
+        </div>
+        <div class="ui-content">
+          <span class="face" style="background:url(img/icon-userdata.png) 0 0 no-repeat;"></span>
+          <p class="email">abc123abc123abc123abc123abc123@mqnic.com</p>
+          <ul class="mobile">
+            <li>홍길동</li>
+            <li>01012341234</li>
+          </ul>
+          <ul class="info">
+            <li>
+              <span class="label">기관</span>
+              <span class="result">화성시 1234567부서</span>
+            </li>
+            <li>
+              <span class="label">권한</span>
+              <span class="result">12345</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- #header -->
+    
+    <div id="container" class="ex_wrp component">
+      <div class="content-wrap">
+
+<pre class="language-html guide">
+<code><link rel="stylesheet" href="css/common.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/tui-time-picker.js"></script>
+<script src="js/tui-date-picker.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/ui.js"></script></code>
+</pre>
+
+      <div class="section">
+        <h2>인풋</h2>
+
+        <div class="code-area">
+          <h3>타입1 <button>코드 보기</button></h3>
+<div class="code-box"><div>
+  <div class="input-wrap">
+    <input type="text" class="input-base tp1" placeholder="검색어를 입력해 주세요.">
+    <button class="btn-del">삭제</button>
+  </div>
+</div></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>타입1 - 비활성화 <button>코드 보기</button></h3>
+<div class="code-box"><div>
+  <div class="input-wrap">
+    <input type="text" class="input-base tp1" placeholder="검색어를 입력해 주세요." disabled>
+    <button class="btn-del">삭제</button>
+  </div>
+</div></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>타입1 - 에러 <button>코드 보기</button></h3>
+<div class="code-box"><div>
+  <div class="input-wrap error">
+    <input type="text" class="input-base tp1" placeholder="검색어를 입력해 주세요." value="Input">
+    <button class="btn-del">삭제</button>
+  </div>
+</div></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area bg-type">
+          <h3>타입 2 <button>코드 보기</button></h3>
+<div class="code-box"><div>
+  <div class="input-wrap">
+    <input type="text" class="input-base tp2" placeholder="검색어를 입력해 주세요.">
+    <button class="btn-del">삭제</button>
+  </div>
+</div></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>타입 2 - 비활성화 <button>코드 보기</button></h3>
+<div class="code-box"><div>
+  <div class="input-wrap">
+    <input type="text" class="input-base tp2" placeholder="검색어를 입력해 주세요." disabled>
+    <button class="btn-del">삭제</button>
+  </div>
+</div></div>
+<pre class="language-html"></pre>
+        </div>
+      </div><!-- .section -->
+
+      <div class="section">
+        <h2>라디오 버튼</h2>
+        <div class="code-area">
+          <h3>라디오 그룹 <button>코드 보기</button></h3>
+<div class="code-box"><ul class="radio-list">
+  <li>
+    <span class="radio-base">
+      <input type="radio" id="radio-public-1" name="radio-public" checked />
+      <label for="radio-public-1">공개</label>
+    </span>
+  </li>
+  <li>
+    <span class="radio-base">
+      <input type="radio" id="radio-public-2" name="radio-public" />
+      <label for="radio-public-2">비공개</label>
+    </span>
+  </li>
+</ul></div>
+<pre class="language-html"></pre>
+        </div>
+      </div><!-- .section -->
+
+      <div class="section">
+        <h2>체크박스</h2>
+        <div class="code-area">
+          <h3>기본 <button>코드 보기</button></h3>
+<div class="code-box"><span class="chk-base chk-only">
+  <input type="checkbox" id="chk-1" />
+  <label for="chk-1">체크 1</label>
+</span></div>
+<pre class="language-html"></pre>
+        </div>
+      </div><!-- .section -->
+
+
+      <div class="section">
+        <h2>검색 영역</h2>
+        <div class="code-area" style="position: relative; z-index: 1;">
+          <h3>타입1 <button>코드 보기</button></h3>
+<div class="code-box"><div class="search-area">
+  <ul class="form-list">
+    <li class="datepicker">
+      <div class="input-wrap input-datepicker">
+        <div class="tui-datepicker-input tui-datetime-input tui-has-focus tui-custom">
+          <input id="startpicker-input1" type="text" aria-label="Date">
+          <span class="tui-ico-date"></span>
+          <div id="startpicker-container1" style="margin-left: -1px;"></div>
+        </div>
+        <span class="bridge">~</span>
+        <div class="tui-datepicker-input tui-datetime-input tui-has-focus tui-custom">
+          <input id="endpicker-input1" type="text" aria-label="Date">
+          <span class="tui-ico-date"></span>
+          <div id="endpicker-container1" style="margin-left: -1px;"></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <label for="user_name">이름</label>
+      <div class="input-wrap">
+        <input type="text" class="input-base tp2" placeholder="이름 입력" id="user_name" value="정보없는 사용자명">
+        <button class="btn-del">삭제</button>
+      </div>
+    </li>
+    <li class="btn">
+      <a href="#" class="btn-search"></a>
+    </li>
+  </ul>
+  
+</div><!-- .search-area --></div>
+<script>tui.DatePicker.localeTexts['customKey'] = {
+  titles: {
+      // days
+      DD: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      // daysShort
+      D: ['일', '월', '화', '수', '목', '금', '토'],
+      // months
+      MMMM: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      // monthsShort
+      MMM: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+  },
+  titleFormat: 'yyyy.MMM',
+  todayFormat: '오늘 : yyyy.MMMM.dd',
+  date: 'Date',
+  time: 'Time'
+};
+
+var today1 = new Date();
+var picker1 = tui.DatePicker.createRangePicker({
+  language: 'customKey',
+  startpicker: {
+    date: today1,
+    input: '#startpicker-input1',
+    container: '#startpicker-container1'
+  },
+  endpicker: {
+    date: today1,
+    input: '#endpicker-input1',
+    container: '#endpicker-container1'
+  },
+  selectableRanges: [
+    [today1, new Date(today1.getFullYear() + 1, today1.getMonth(), today1.getDate())]
+  ],
+  format: 'YYYY-MM-dd',
+  // showAlways: true,
+});
+
+picker1.on('change:end', () => {
+    console.log(123);
+}); </script>
+
+<pre class="language-html"></pre>
+<pre class="language-javascript"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>타입2 <button>코드 보기</button></h3>
+<div class="code-box"><div class="search-area tp2">
+  <ul class="form-list">
+    <li>
+      <label for="user_name">카테고리</label>
+      <span class="select-base tp2">
+        <span class="value"></span>
+        <select>
+          <option value="0">선택</option>
+          <option value="1" selected>장애/오류</option>
+          <option value="2">값 2</option>
+          <option value="3">값 3</option>
+        </select>
+      </span>
+      <div class="input-wrap">
+        <input type="text" class="input-base tp2" placeholder="검색어를 입력하세요" >
+        <button class="btn-del">삭제</button>
+      </div>
+    </li>
+    <li class="btn">
+      <a href="#" class="btn-search"></a>
+    </li>
+  </ul>
+</div><!-- .search-area --></div>
+<pre class="language-html"></pre>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>셀렉트박스</h2>
+        <div class="code-area">
+          <h3>기본 셀렉트박스 - 타입1 <button>코드 보기</button></h3>
+<div class="code-box"><span class="select-base tp1">
+  <span class="value"></span>
+  <select>
+    <option value="0" selected>선택</option>
+    <option value="1">값 1</option>
+    <option value="2">값 2</option>
+    <option value="3">값 3</option>
+  </select>
+</span></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>기본 셀렉트박스 - 타입1 - 값 선택 <button>코드 보기</button></h3>
+<div class="code-box"><span class="select-base tp1">
+  <span class="value"></span>
+  <select>
+    <option value="0">선택</option>
+    <option value="1">값 1</option>
+    <option value="2" selected>긴값긴값긴값긴값긴값긴값긴값긴값긴값긴값긴값 2</option>
+    <option value="3">값 3</option>
+  </select>
+</span></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area bg-type">
+          <h3>기본 셀렉트박스 - 타입2 <button>코드 보기</button></h3>
+<div class="code-box"><span class="select-base tp2">
+  <span class="value"></span>
+  <select>
+    <option value="0" selected>선택</option>
+    <option value="1">값 1</option>
+    <option value="2">값 2</option>
+    <option value="3">값 3</option>
+  </select>
+</span></div>
+<pre class="language-html"></pre>
+        </div>
+      </div><!-- .section -->
+
+      <div class="section">
+        <h2>버튼</h2>
+        <div class="code-area">
+          <h3>버튼 - 타입1 <button>코드 보기</button></h3>
+<div class="code-box"><span class="btn-base tp1"><a href="#">로그인</a></span></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>비활성화 버튼 <button>코드 보기</button></h3>
+<div class="code-box"><span class="btn-base tp1 disabled"><a href="#">로그인</a></span></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>버튼 그룹 <button>코드 보기</button></h3>
+<div class="code-box"><div class="btns-wrap t-right mt40">
+  <span class="btn-base tp1"><a href="#"><span class="ico delete">삭제</span></a></span>
+  <span class="btn-base tp1"><a href="#"><span class="ico regist">등록</span></a></span>
+  <span class="btn-base tp1"><a href="#"><span class="ico edit">수정</span></a></span>
+  <span class="btn-base tp2"><a href="#"><span class="ico reset">비밀번호 초기화</span></a></span>
+  <span class="btn-base tp2"><a href="#"><span class="ico back">전체 문의 내역</span></a></span>
+</div><!-- .btns-wrap --></div>
+<pre class="language-html"></pre>
+          </div>
+
+        <div class="code-area">
+          <h3>버튼 그룹 - 비활성화 <button>코드 보기</button></h3>
+<div class="code-box"><div class="btns-wrap t-right mt40">
+  <span class="btn-base tp1 disabled"><a href="#"><span class="ico delete">삭제</span></a></span>
+  <span class="btn-base tp1 disabled"><a href="#"><span class="ico regist">등록</span></a></span>
+  <span class="btn-base tp1 disabled"><a href="#"><span class="ico edit">수정</span></a></span>
+  <span class="btn-base tp2 disabled"><a href="#"><span class="ico reset">비밀번호 초기화</span></a></span>
+  <span class="btn-base tp2 disabled"><a href="#"><span class="ico back">전체 문의 내역</span></a></span>
+</div><!-- .btns-wrap --></div>
+<pre class="language-html"></pre>
+        </div>
+
+        <div class="code-area">
+          <h3>버튼 그룹 - Large - 비활성화 <button>코드 보기</button></h3>
+<div class="code-box"><div class="btns-wrap mt20 t-center">
+  <span class="btn-base tp1 reverse lg"><a href="#">목록</a></span>
+  <span class="btn-base tp1 lg"><a href="#">등록</a></span>
+</div><!-- .btns-wrap --></div>
+<pre class="language-html"></pre>
+        </div>
+      </div><!-- .section -->
+
+      <div class="component-menu">
+        <ul class="component-list"></ul>
+        <span class="btn-base tp1"><a href="#">닫기</a></span><br />
+      </div>
+
+      </div><!-- .content-wrap -->
+
+    </div><!-- #container -->
+    <div id="footer">
+      <p class="copy">COPYRIGHT ©️ 2024 LivingLab. ALL RIGHTS RESERVED.</p>
+      <a href="#" class="btn-top"></a>
+    </div><!-- #footer -->
+  </div><!-- #wrapper -->
+
+  <script>
+    var compMenu = $('.component-menu');
+    var compSection = $('.component .section');
+    var compPosition = [];
+
+    compSection.each(function(){
+      compMenu.find('ul').append('<li>' + $(this).find('h2').text() + '</li>');
+      compPosition.push($(this).position().top)
+    });
+    compMenu.on('click', 'li', function(){
+      $('html, body').animate({ scrollTop: compSection.eq($(this).index()).position().top }, 300);
+    });
+
+    $(window).on('load scroll', function(){
+      var scTop = $(this).scrollTop();
+      var scBottom = scTop >= $(document).height() - $(window).height();
+      for (var i = 0; i < compPosition.length; i++) {
+        if (scBottom) {
+          compMenu.find('li').eq(compPosition.length - 1).addClass('on');
+          compMenu.find('li').eq(compPosition.length - 1).siblings().removeClass('on');
+        } else {
+          if (scTop >= compPosition[i] - 10 && scTop < compPosition[i + 1]) {
+            compMenu.find('li').eq(i).addClass('on')
+            compMenu.find('li').eq(i).siblings().removeClass('on');
+          }
+        }
+      }
+    });
+
+    compMenu.find('.btn-base a').on('click', function(e){
+      e.preventDefault();
+      if ($(this).text() === '닫기') {
+        $(this).text('열기');
+        compMenu.find('.component-list').hide();
+      } else {
+        $(this).text('닫기');
+        compMenu.find('.component-list').show();
+      }
+      
+    });
+
+    setTimeout(function(){
+      // $(window).scrollTop(compSection.eq(14).position().top);
+      compMenu.find('.btn-base a').click();
+    }, 150);
+  </script>
+  <script src="js/prism.js"></script>
+</body>
+</html>

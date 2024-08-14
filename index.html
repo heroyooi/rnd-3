@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>퍼블리싱 - 코딩맵</title>
+  <link rel="stylesheet" type="text/css" href="./_guide/guide.css" />
+	<script type="text/javascript" src="./_guide/dtree.js"></script>
+</head>
+<body>
+  <div class="guide-wrapper">
+    <div id="content_guide_list">
+      <h1>퍼블리싱 진행표</h1>
+      <h2>진행 표시</h2>
+      <ul>
+  			<li><span style="color:#aeaeae;">■ 작업전</span></li>
+  			<li><span style="color:green;">■ 작업중</span></li>
+  			<li><span style="color:#5727ff;">■ 완료</span></li>
+  			<li><span style="color:#37b4e7;">■ 신규</span></li>
+  			<li><span style="color:#f55;">■ 수정</span></li>
+      </ul>
+      <span id="t_title"></span>
+    </div>
+    <div class="dtree">
+  		<div class="area_btn">
+  			<a href="javascript: b.openAll();"><img src="./_guide/img/btn_expand.gif" alt="Expand All" /></a>
+  			<a href="javascript: b.closeAll();"><img src="./_guide/img/btn_collapse.gif" alt="Collapse All" /></a>
+  		</div>
+  		<script type="text/javascript">
+			//<![CDATA[
+			b = new dTree('b');
+
+			b.add(0, -1, '자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발');
+			b.add(1, 0, '00 Login' );
+			b.add(1.011, 1, '1-1) 국5_00 Login : 01 Intro','login.html', '완료', '_blank');
+			b.add(1.012, 1, '1-2) 국5_00 Login : 02 Error','login.html?sample=valid1', '완료', '_blank');
+			b.add(1.013, 1, '1-3) 국5_00 Login : 03 Password Setting ','reset_password.html?sample=valid2', '완료', '_blank');
+
+			b.add(6, 0, '05 운영관리');
+			b.add(6.011, 6, '1-1) 국5_05-01 사용자정보 : 01-01 List', 'user_1.html?sample=isData', '완료', '_blank');
+			b.add(6.012, 6, '1-2) 국5_05-01 사용자정보 : 01-02 No data', 'user_1.html?sample=noData', '완료', '_blank');
+			b.add(6.013, 6, '1-3) 국5_05-01 사용자정보 : 01-04 Pop up', 'user_1.html?sample=isData&popup=resetPassword', '완료', '_blank');
+			b.add(6.021, 6, '2-1) 국5_05-01 사용자정보 : 02-01 Regist', 'user_2.html', '완료', '_blank');
+			b.add(6.022, 6, '2-2) 국5_05-01 사용자정보 : 02-02 Regist : Error', 'user_2.html?sample=error', '완료', '_blank');
+			b.add(6.023, 6, '2-3) 국5_05-01 사용자정보 : 02-03 Regist : Modify', 'user_2.html?sample=modify', '완료', '_blank');
+			b.add(6.031, 6, '3-1) 국5_05-02 기관관리 : 01-01 List', 'user_3.html?sample=isData', '신규', '_blank');
+			b.add(6.032, 6, '3-2) 국5_05-02 기관관리 : 01-02 Popup : 상세', 'user_3.html?sample=isData&popup=detail', '신규', '_blank');
+			b.add(6.033, 6, '3-3) 국5_05-02 기관관리 : 01-02 Popup : 등록', 'user_3.html?sample=isData&popup=regist', '신규', '_blank');
+			b.add(6.034, 6, '3-4) 국5_05-02 기관관리 : 01-02 Popup : 등록 - 에러', 'user_3.html?sample=isData&popup=registError', '신규', '_blank');
+
+			b.add(8, 0, '07 개발자센터');
+			b.add(8.011, 8, '1-1) 국5_07-01 내서비스 : 01-01 Default Full Open', 'dev_1.html', '완료', '_blank');
+			b.add(8.012, 8, '1-2) 국5_07-01 내서비스 : 01-02 Default Kafka Close', 'dev_1.html?sample=close', '완료', '_blank');
+			b.add(8.021, 8, '2-1) 국5_07-02 FAQ_USER: 01 List', 'dev_2.html', '완료', '_blank');
+			b.add(8.022, 8, '2-2) 국5_07-02 FAQ_USER : 02 Search', 'dev_2.html?sample=search', '완료', '_blank');
+			b.add(8.023, 8, '2-3) 국5_07-02 FAQ_USER : 03 No data', 'dev_2.html?sample=noData', '완료', '_blank');
+			b.add(8.03, 8, '3) 국5_07-02 FAQ_ADMIN : 01 List', 'dev_3.html', '완료', '_blank');
+			b.add(8.041, 8, '4-1) 국5_07-02 FAQ_ADMIN : 02-01 Register', 'dev_4.html', '완료', '_blank');
+			b.add(8.042, 8, '4-2) 국5_07-02 FAQ_ADMIN : 02-02 Modify', 'dev_4.html?sample=edit', '완료', '_blank');
+			b.add(8.05, 8, '5) 국5_07-03 QNA_USER : 01-01 List', 'dev_5.html', '완료', '_blank');
+			b.add(8.061, 8, '6-1) 국5_07-03 QNA_USER : 02-01 Detail View', 'dev_6.html', '완료', '_blank');
+			b.add(8.062, 8, '6-2) 국5_07-03 QNA_USER : 02-02 Detail View', 'dev_6.html?sample=reply', '완료', '_blank');
+			b.add(8.071, 8, '7-1) 국5_07-03 QNA_USER : 03-01 Register', 'dev_7.html', '완료', '_blank');
+			b.add(8.072, 8, '7-2) 국5_07-03 QNA_USER : 03-02 Pop up', 'dev_7.html?popup=alert', '완료', '_blank');
+			b.add(8.08, 8, '8) 국5_07-03 QNA_ADMIN : 01-01 List', 'dev_8.html', '완료', '_blank');
+			b.add(8.091, 8, '9-1) 국5_07-03 QNA_ADMIN : 02-01 Detail View', 'dev_9.html', '완료', '_blank');
+			b.add(8.092, 8, '9-2) 국5_07-03 QNA_ADMIN : 02-01 Detail View - Edit', 'dev_9.html?sample=edit', '완료', '_blank');
+
+			b.add(9, 0, '08 홈');
+			b.add(9.01, 9, '1) 국5_00 Home', 'home.html', '완료', '_blank');
+
+			b.add(10, 0, '10. 컴포넌트');  
+			b.add(10.01, 10, '1) 컴포넌트 가이드', 'component.html', '작업중', '_blank');
+
+			document.write(b);
+			//]]>
+  		</script>
+  	</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발</title>
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tui-time-picker.js"></script>
+  <script src="js/tui-date-picker.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/ui.js"></script>
+</head>
+<body class="home">
+  <div id="wrap">
+    <div id="header">
+      <h1 class="logo"><a href="#"><span>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발</span></a></h1>
+      <ul id="utilmenu">
+        <li class="user"><a href="#"></a></li>
+        <li class="logout"><a href="#"></a></li>
+      </ul>
+      <div class="ui-wrap">
+        <div class="ui-header">
+          <p class="tit">사용자 정보</p>
+          <a href="#" class="btn-close"></a>
+        </div>
+        <div class="ui-content">
+          <span class="face" style="background:url(img/icon-userdata.png) 0 0 no-repeat;"></span>
+          <p class="email">abc123abc123abc123abc123abc123@mqnic.com</p>
+          <ul class="mobile">
+            <li>홍길동</li>
+            <li>01012341234</li>
+          </ul>
+          <ul class="info">
+            <li>
+              <span class="label">기관</span>
+              <span class="result">화성시 1234567부서</span>
+            </li>
+            <li>
+              <span class="label">권한</span>
+              <span class="result">12345</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="submenu-area"></div>
+    </div><!-- #header -->
+    <div id="container">
+      <div class="home-box">
+        <p class="s-txt" data-aos="fade-down">자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발</p>
+        <p class="b-txt" data-aos="fade-down">오신 것을 환영합니다.</p>
+        <div class="link-box"  data-aos="fade-up" data-aos-delay="500">
+          <a href="#" class="db">
+            <span class="label">통합상황판</span>
+            <span class="arrow">
+              <em class="txt">바로가기</em>
+              <em class="ico"></em>
+            </span>
+          </a>
+          <a href="#" class="sy">
+            <span class="label">운영관리</span>
+            <span class="arrow">
+              <em class="txt">바로가기</em>
+              <em class="ico"></em>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div><!-- #container -->
+    <div id="footer">
+      <p class="copy">COPYRIGHT ©️ 2024 LivingLab. ALL RIGHTS RESERVED.</p>
+      <!-- <a href="#" class="btn-top"></a> -->
+    </div><!-- #footer -->
+
+    <div class="popup-wrap z-anim mfp-hide" id="popup-reset-password">
+      <div class="con-wrap">
+        <dl class="info">
+          <dt>abc123!!</dt>
+          <dd>초기화된 패스워드 입니다.</dd>
+        </dl>
+        <div class="btns-wrap t-center mt20">
+          <span class="btn-base tp1 b-mfp-close"><a href="#">확인</a></span>
+        </div>
+      </div>
+    </div>
+    
+  </div><!-- #wrap -->
+
+  <script>
+    $('.toggle-list > li .tit').on('click', function(){
+      if(!$(this).closest('li').hasClass('on')) {
+        $(this).closest('li').addClass('on');
+      } else {
+        $(this).closest('li').removeClass('on');
+      }
+    });
+    var Qsample = $.urlParam('sample');
+    if (Qsample == 'close') {
+      $('#Kafka').removeClass('on');
+      $('#SFTP .no-data').show();
+      $('#SFTP .tb-wrap').hide();
+    }
+  </script>
+</body>
+</html>
