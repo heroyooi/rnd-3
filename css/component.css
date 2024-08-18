@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+/* scrollbar */
+.c-scrollbar::-webkit-scrollbar { border-radius: 25px; background: transparent; } 
+.c-scrollbar::-webkit-scrollbar-track { border-radius: 25px; background: transparent; margin:10px 0; } 
+.c-scrollbar::-webkit-scrollbar-thumb { background: rgba(79, 82, 107, 0.3); border-radius: 25px; background-clip: padding-box; border: 4px solid transparent; }
+
 /* text count */
 .tx-count{font-size:12px;color:#666;position:absolute;}
 .tx-count em{color:#209dff;}
@@ -59,6 +64,13 @@
 .input-wrap.error .input-base.tp1{padding:7px 25.5px 7px 15.5px;}
 .input-wrap .bridge{font-size:14px;color:#1d1e22;width:17px;text-align:center;}
 .input-wrap .tui-datepicker-input{width:calc(50% - 8.5px);}
+.input-wrap.email{display:flex;align-items:center;gap:0 8px;}
+.input-wrap.email .btn-base{flex-shrink:0;width:81px;}
+.input-wrap.email .select-base{flex-shrink:0;}
+.input-wrap.email .bridge{font-size:13px;flex-shrink:0;width:12px;}
+.input-wrap.input-btn{display:flex;gap:0 8px;}
+.input-wrap.input-btn .btn-base{flex-shrink:0;}
+.input-wrap.input-btn .time{position: absolute;font-size:14px;line-height:21px;color:#8c8c8c;right:73px;top:9px;}
 
 .input-info .input-base{width:200px;}
 .input-info .input-wrap + .s-info{margin-left:8px;}
@@ -81,8 +93,9 @@
 .select-base.tp1 .value{border:1px solid #dcdee2;}
 .select-base.tp2 .value{border-color:#fff;}
 .select-base select{position:absolute;left:0;top:0px;padding-left:16px;width:100%;height:38px;line-height:38px;font-size:14px;text-align:left;border:0;background:#fff;opacity:0;filter:alpha(opacity=0);z-index:1;cursor:pointer;}
-.select-base.disabled{background:rgba(0, 0, 0, 0.04);cursor:default;}
+.select-base.disabled{cursor:default;}
 .select-base.disabled select{display:none;}
+.select-base.disabled .value{background:#f2f2f2;color:#8c8c8c;}
 /* .select-base.active .value{border:2px solid #2962ff;line-height:36px;} */
 .select-list{display:flex;gap:0 24px;}
 .select-list li{display:flex;gap:0 8px;align-items:center;}
@@ -110,6 +123,7 @@
 .btn-base.tp2 > *{background-color:#45d700;}
 .btn-base.tp2:not(.disabled) > *:hover{background-color:#3ec200;}
 .btn-base.lg > *{padding:14px 44px;font-weight:bold;}
+.btn-base.sm > *{font-size:14px;}
 .btn-base.reverse.lg > *{padding:13px 43px;}
 .btn-base .ico{display:inline-block;padding-left:22px;position:relative;}
 .btn-base .ico::before{content:'';display:block;width:18px;height:18px;position:absolute;left:0;top:3px;background-position:0 0;background-repeat:no-repeat;}
@@ -177,6 +191,7 @@
 [class*=popup-wrap] .con-wrap .info{text-align:center;}
 [class*=popup-wrap] .con-wrap .info dt{font-size:16px;font-weight:bold;color:#4f526b;line-height:1.5;}
 [class*=popup-wrap] .con-wrap .info dd{font-size:14px;color:#595959;line-height:1.5;margin-top:8px;}
+[class*=popup-wrap] .con-wrap .info dd .result{font-size:16px;font-weight:bold;color:#4f526b;margin-top:8px;}
 [class*=popup-wrap] .con-wrap .s-tit{font-size:14px;font-weight:bold;color:#4f526b;margin-bottom:8px;}
 [class*=popup-wrap] button.mfp-close,
 .popup-wrap button.mfp-arrow{width:34px;height:34px;background:url(../img/ico-del-s.png) 50% 50% no-repeat;top:0;right:0;font-size:0;opacity:1;}
