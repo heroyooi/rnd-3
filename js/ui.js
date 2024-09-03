@@ -343,6 +343,10 @@ var GUI = window.GUI || (function(){
             $(this).css('width', $(this).data('width'));
           }
         });
+
+        // if (popupUI.hasClass('popup-window')) {
+        //   resizeWindow();
+        // }
       }
 
       if (csPopupUI.length) {
@@ -562,4 +566,31 @@ var closeGNB = function(){
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var openWindow = function(url, width, height){
+  var option = "width=" + width + ", height=" + height + ", left=0, top=0, resizeable=no, scrollbars=yes, status=no;";
+  var newWindow = window.open(url, "", option);
+
+  newWindow.onload = function() {
+    if (newWindow.document.documentElement.requestFullscreen) {
+        newWindow.document.documentElement.requestFullscreen();
+    } else if (newWindow.document.documentElement.mozRequestFullScreen) { // Firefox
+        newWindow.document.documentElement.mozRequestFullScreen();
+    } else if (newWindow.document.documentElement.webkitRequestFullscreen) { // Chrome, Safari
+        newWindow.document.documentElement.webkitRequestFullscreen();
+    } else if (newWindow.document.documentElement.msRequestFullscreen) { // IE/Edge
+        newWindow.document.documentElement.msRequestFullscreen();
+    }
+  };
+}
+
+var resizeWindow = function(){
+  $(window).on('load', function(){
+    var winW = $('.popup-wrap').outerWidth() + (window.outerWidth - window.innerWidth);
+    var winH = $('.popup-wrap').outerHeight() + (window.outerHeight - window.innerHeight);
+    var realW = winH <= 700 ? winW : winW + 20;
+    var realH = winH <= 700 ? winH : 700;
+    window.resizeTo(realW, realH);
+  });
 }

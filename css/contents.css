@@ -110,34 +110,3 @@ body.member #container::before{display:none;}
 .member-tab{display:inline-flex;padding:8px;background-color: #f2f5f6;border-radius:40px;}
 .member-tab li a{font-size:16px;line-height:24px;color:#595959;font-weight:bold;padding:14px 44px;border-radius:32px;display:block;}
 .member-tab li.on a{background-color:#2962ff;color:#fff;}
-
-.chart-list{display:flex;gap:0 40px;}
-.chart-list > li{width:33.333%;}
-.chart-list > li .chart-tit{display:flex;justify-content:space-between;}
-.chart-list > li .chart-tit span{display:block;}
-.chart-list > li .chart-tit .tit{font-size:18px;line-height:1.5;color:#1d1e22;font-weight:500;}
-.chart-list > li .chart-tit .date{font-size:13px;line-height:1.5;color:#8c8c8c;}
-.chart-list > li .chart-con{margin-top:12px;}
-.chart-list > li .chart-con .chart-area{border:1px solid #dcdee2;border-radius:16px;padding:24px;position: relative;}
-.chart-list > li .chart-con .chart-area .legend{position:absolute;right:30px;top:24px;display:flex;gap:0 24px;}
-.chart-list > li .chart-con .chart-area .legend > li{display:flex;align-items:center;gap:0 4px;}
-.chart-list > li .chart-con .chart-area .legend > li::before{content:'';display:inline-block;width:14px;height:4px;}
-.chart-list > li .chart-con .chart-area .legend > li.tp1::before{background-color:#2962ff;}
-.chart-list > li .chart-con .chart-area .legend > li.tp2::before{background-color:#3ec200;}
-.chart-list > li .chart-con .chart-area .tit{font-size:13px;font-weight:bold;color:#595959;line-height:1.5;position: absolute;left:24px;top:20px;}
-.chart-list > li .chart-con .chart-area.col2{display:flex;}
-.chart-list > li .chart-con .chart-area.col2 > div{width:50%;}
-.chart-list > li .chart-info{margin-top:16px;}
-.chart-list > li .chart-info ul{display:flex;gap:0 8px;}
-.chart-list > li .chart-info ul li{width:33.33%;padding:24px 16px;background-color:#616c8b;border-radius:16px;display:flex;flex-direction:column;height:114px;}
-.chart-list > li .chart-info ul li.tp1{background-color:#2962ff;}
-.chart-list > li .chart-info ul li.tp2{background-color:#3ec200;}
-.chart-list > li .chart-info ul li span{display:block;}
-.chart-list > li .chart-info ul li .label{font-size:13px;font-weight:700;color:#fff;line-height:1.5;}
-.chart-list > li .chart-info ul li .result{font-size:16px;line-height:1.5;color:#fff;margin-top:10px;}
-.chart-list > li .chart-info ul li .result em{font-size:24px;font-weight:500;margin-right:4px;}
-.chart-list > li .chart-info .label{font-size:14px;line-height:1.5;font-weight:bold;color:#4f526b;margin-bottom:8px;display:block;}
-.chart-list > li .chart-info.type-2 ul{gap:0;border-radius:16px;overflow:hidden;}
-.chart-list > li .chart-info.type-2 ul li{justify-content:center;flex-direction:row;align-items: center;justify-content:space-between;border-radius:0;width:50%;height:85px;}
-.chart-list > li .chart-info.type-2 ul li .label{margin-bottom:0;}
-.chart-list > li .chart-info.type-2 ul li .result{margin-top:0;}
