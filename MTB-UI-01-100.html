@@ -17,8 +17,8 @@
 <body>
   <div id="wrap" class="login-wrap">
     <video class="login-video" autoplay loop muted>
-      <source src="./gf_do_end.mp4" type="video/mp4"></source>
-      <source src="./gf_do_end.mp4" type="video/ogg"></source>
+      <source src="./g7kogin.mp4" type="video/mp4"></source>
+      <source src="./g7kogin.mp4" type="video/ogg"></source>
     </video>
     <div class="login-area">
       <h1 class="logo"><span>메타버스 기반 통합가상시험환경 운영 플랫폼</span></h1>
@@ -27,14 +27,14 @@
           <li>
             <label for="user_id">아이디</label>
             <div class="input-wrap">
-              <input type="text" class="input-base tp1" placeholder="아이디 입력" id="user_id">
+              <input type="text" class="input-base tp2" placeholder="아이디 입력" id="user_id">
               <button class="btn-del">삭제</button>
             </div>
           </li>
           <li>
             <label for="user_password">비밀번호</label>
             <div class="input-wrap">
-              <input type="password" class="input-base tp1" placeholder="비밀번호 입력" id="user_password">
+              <input type="password" class="input-base tp2" placeholder="비밀번호 입력" id="user_password">
               <button class="btn-del">삭제</button>
             </div>
           </li>
@@ -42,21 +42,23 @@
             <span class="btn-base tp1"><a href="#">로그인</a></span>
           </li>
         </ul>
-        <div class="valid-wrap">
+        <div class="valid-wrap" style="display: none;">
           <p class="valid t-center" id="valid1" style="display: none;">아이디 또는 비밀번호가 일치하지 않습니다</p>
+          <p class="valid t-center" id="valid2" style="display: none;">비밀번호 형식이 올바르지 않습니다.</p>
         </div>
       </div>
       <ul class="other-menu">
         <li><a href="#">회원가입</a></li>
         <li><a href="#">ID/PW 찾기</a></li>
       </ul>
+      <div class="info"><span>본 시스템은 인가된 사용자만 사용할 수 있습니다. 문의 000-000-0000</span></div>
     </div><!-- .login-area -->
   </div><!-- #wrap -->
 
   <script>
     var Qsample = $.urlParam('sample');
 	  if (Qsample) {
-      $('#' + Qsample).show();
+      $('.valid-wrap, #' + Qsample).show();
     }
   </script>
 </body>

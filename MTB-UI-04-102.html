@@ -95,7 +95,7 @@
           <li class="current"><a href="#">시뮬레이션 수행 현황</a></li>
         </ul>
       </div><!-- .tit-wrap -->
-      <div class="content-wrap">
+      <div class="content-wrap mt100">
         <ul class="chart-list">
           <li>
             <div class="chart-tit">
@@ -205,9 +205,10 @@
               </div>
             </div>
             <div class="chart-con">
-              <div class="chart-area col2">
-                <div id="chart3_1" style="height: 272px"></div>
-                <div id="chart3_2" style="height: 272px"></div>
+              <div class="chart-area">
+                <!-- <div id="chart3_1" style="height: 272px"></div>
+                <div id="chart3_2" style="height: 272px"></div> -->
+                <div id="chart3" style="height: 272px"></div>
                 <ul class="legend">
                   <li class="tp1">모라이</li>
                   <li class="tp2">메타버스</li>
@@ -215,10 +216,8 @@
               </div>
             </div>
             <div class="chart-info type-2">
+              <span class="label">전일 대비 시뮬레이션 수행 추이 현황</span>
               <ul>
-                <li>
-                  <span class="label">전일 대비 <br />시뮬레이션 수행 추이 현황</span>
-                </li>
                 <li class="tp1">
                   <span class="label">모라이</span>
                   <span class="result"><em>+00%</em></span>
@@ -322,47 +321,86 @@
   }
 
     function drawChart3() {
-      var data1 = google.visualization.arrayToDataTable([
-        ['Year', '모라이'],
-        ['03',  0],
-        ['06',  120],
-        ['09',  390],
-        ['12',  200],
-        ['15',  210],
-        ['18',  330],
-        ['21',  200],
-        ['24',  280],
-      ]);
-      var data2 = google.visualization.arrayToDataTable([
-        ['Year', '메타버스'],
-        ['03',  0],
-        ['06',  110],
-        ['09',  120],
-        ['12',  220],
-        ['15',  100],
-        ['18',  200],
-        ['21',  280],
-        ['24',  290],
+      // var data1 = google.visualization.arrayToDataTable([
+      //   ['Year', '모라이'],
+      //   ['03',  0],
+      //   ['06',  120],
+      //   ['09',  390],
+      //   ['12',  200],
+      //   ['15',  210],
+      //   ['18',  330],
+      //   ['21',  200],
+      //   ['24',  280],
+      // ]);
+      // var data2 = google.visualization.arrayToDataTable([
+      //   ['Year', '메타버스'],
+      //   ['03',  0],
+      //   ['06',  110],
+      //   ['09',  120],
+      //   ['12',  220],
+      //   ['15',  100],
+      //   ['18',  200],
+      //   ['21',  280],
+      //   ['24',  290],
+      // ]);
+
+      // var getOption = (color, title) => ({
+      //   series: {
+      //     0: { color },
+      //   },
+      //   vAxis: {
+      //     gridlines: {
+      //       count: 100
+      //     },
+      //     ticks: [0, 100, 200, 300, 400, 500],
+          
+      //   },
+      //   hAxis: {
+      //     title,
+      //     titleTextStyle: {
+      //       fontSize: 12,
+      //       italic: false,
+      //     },
+      //     textPosition: 'none',
+      //   },
+      //   chartArea: {
+      //     left: 30,
+      //     top: 30,
+      //     width: '94%',
+      //     height: '80%'
+      //   }
+      // });
+      // var chart1 = new google.visualization.LineChart(document.getElementById('chart3_1'));
+      // var chart2 = new google.visualization.LineChart(document.getElementById('chart3_2'));
+      // chart1.draw(data1, getOption('#2962ff', '모라이'));
+      // chart2.draw(data2, getOption('#3ec200', '메타버스'));
+      var data = google.visualization.arrayToDataTable([
+        ['Year', '모라이', '메타버스'],
+        ['00',    0,       0],
+        ['03',  130,     180],
+        ['06',  400,     210],
+        ['09',  200,     310],
+        ['12',  200,     180],
+        ['15',  330,     200],
+        ['18',  300,     220],
+        ['21',  100,      30],
+        ['24',  220,     180],
       ]);
 
-      var getOption = (color, title) => ({
+      var options = {
+        // title: 'Series',
         series: {
-          0: { color },
+          0: { color: '#2962ff' },
+          1: { color: '#3ec200' }
         },
         vAxis: {
           gridlines: {
-            count: 100
-          },
-          ticks: [0, 100, 200, 300, 400, 500],
-          
+            count: 5
+          }, 
+          ticks: [0, 100, 200, 300, 400, 500]
         },
-        hAxis: {
-          title,
-          titleTextStyle: {
-            fontSize: 12,
-            italic: false,
-          },
-          textPosition: 'none',
+        legend: {
+          position: 'none',
         },
         chartArea: {
           left: 30,
@@ -370,11 +408,9 @@
           width: '94%',
           height: '80%'
         }
-      });
-      var chart1 = new google.visualization.LineChart(document.getElementById('chart3_1'));
-      var chart2 = new google.visualization.LineChart(document.getElementById('chart3_2'));
-      chart1.draw(data1, getOption('#2962ff', '모라이'));
-      chart2.draw(data2, getOption('#3ec200', '메타버스'));
+      };
+      var chart = new google.visualization.LineChart(document.getElementById('chart3'));
+      chart.draw(data, options);
     }
 
   </script>
