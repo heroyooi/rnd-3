@@ -132,6 +132,7 @@
 .btn-base .ico.edit::before{background-image:url(../img/ico-board-modif-w.png);}
 .btn-base .ico.reset::before{background-image:url(../img/ico-board-reset-w.png);}
 .btn-base .ico.back::before{background-image:url(../img/ico-board-back-w.png);}
+.btn-base .ico.down::before{background-image:url(../img/ico-board-down-w.png);}
 .btn-base.disabled > *{background:#edf0f5;color:#8c8c8c;cursor:default;pointer-events:none;}
 .btn-base.disabled .ico.delete::before{background-image:url(../img/ico-board-delete-g.png);}
 .btn-base.disabled .ico.regist::before{background-image:url(../img/ico-board-regist-g.png);}
@@ -268,7 +269,8 @@
 .tb-list tr.answer.on{display:table-row;}
 .tb-list tr.answer td{padding:40px;background-color:rgba(242, 245, 246, 0.5);font-size:16px;border-top:1px solid #f2f2f2;}
 .tb-list tr td a:hover,
-.tb-list tr td a.evt:hover{color:#2962ff;text-decoration:underline;}
+.tb-list tr td a.evt:hover,
+.tb-list tr td a.active{color:#2962ff;text-decoration:underline;}
 .tb-list td .state{color:#4f526b;font-weight:600;}
 .tb-list td .state.complete{color:#2962ff;}
 .tb-list td .new{display:inline-block;vertical-align:middle;margin-left:4px;}
@@ -351,3 +353,9 @@
 .info-detail > dd li span{display:block;font-size:14px;line-height:1.5;color:#595959;padding:0 16px;}
 .info-detail > dd li .label{flex-shrink:0;width:200px;}
 .info-detail > dd li .value{flex-grow:1;font-weight:500;color:#1d1e22;}
+
+.top-area{display:flex;justify-content:space-between;align-items:center;}
+.tab-base{display:flex;border-radius:4px;overflow:hidden;}
+.tab-base > li{}
+.tab-base > li > a{display:inline-block;font-size:14px;font-weight:700;color:#595959;line-height:1.5;padding:8.5px 16px;background-color:#edf0f5;}
+.tab-base > li.on > a{background-color:#2962ff;color:#fff;}

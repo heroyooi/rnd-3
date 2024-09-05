@@ -18,7 +18,7 @@
   <div id="wrap">
     <div id="header">
       <h1 class="logo"><a href="#"><span>통합 가상시험환경</span></a></h1>
-      <ul id="gnb" class="admin" data-dp1="2" data-dp2="1">
+      <ul id="gnb" class="admin" data-dp1="2" data-dp2="2">
         <li class="dep1">
           <a href="#"><span>가상시험환경 모니터링</span></a>
           <ul>
@@ -86,11 +86,11 @@
     </div><!-- #header -->
     <div id="container">
       <div class="tit-wrap">
-        <h3 class="tit app">시뮬레이션 이력</h3>
+        <h3 class="tit app">시뮬레이션 상세결과</h3>
         <ul class="navi-area">
           <li class="home"><a href="#">홈</a></li>
           <li><a href="#">시뮬레이션 통계</a></li>
-          <li class="current"><a href="#">시뮬레이션 이력</a></li>
+          <li class="current"><a href="#">시뮬레이션 상세결과</a></li>
         </ul>
       </div><!-- .tit-wrap -->
       <div class="content-wrap">
@@ -120,76 +120,30 @@
                 <button class="btn-del">삭제</button>
               </div>
             </li>
-            <li>
-              <label for="search_user_id">사용자 ID</label>
-              <div class="input-wrap">
-                <input type="text" class="input-base tp2" placeholder="ID 입력" id="search_user_id" />
-                <button class="btn-del">삭제</button>
-              </div>
-            </li>
             <li class="btn">
               <a href="#" class="btn-search"></a>
             </li>
           </ul>
-          
         </div><!-- .search-area -->
 
-        <div class="btns-wrap t-right mt40">
-          <span class="btn-base tp1"><a href="#"><span class="ico delete">삭제</span></a></span>
-          <span class="btn-base tp1"><a href="#"><span class="ico regist">등록</span></a></span>
-          <span class="btn-base tp1"><a href="#"><span class="ico edit">수정</span></a></span>
-          <span class="btn-base tp2 btn-popup-anim-1"><a href="#popup-reset-password"><span class="ico reset">비밀번호 초기화</span></a></span>
-        </div><!-- .btns-wrap -->
-        
-        <div class="tb-wrap noData mt20">
-          <table class="tb-list" summary="사용자 정보 목록">
-            <colgroup>
-              <col width="80" />
-              <col width="*" />
-              <col width="120" />
-              <col width="340" />
-              <col width="340" />
-              <col width="160" />
-              <col width="140" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col" class="t-center">
-                  <span class="chk-base chk-only">
-                    <input type="checkbox" id="chk-tb-all-nodata" />
-                    <label for="chk-tb-all-nodata">전체 체크</label>
-                  </span>
-                </th>
-                <th scope="col">제목</th>
-                <th scope="col">이름</th>
-                <th scope="col">기관</th>
-                <th scope="col">권한명</th>
-                <th scope="col">전화번호</th>
-                <th scope="col">등록일</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="7">
-                  <div class="no-data">
-                    검색 결과가 없습니다.
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!-- .tb-wrap -->
+        <div class="top-area mt40">
+          <ul class="tab-base">
+            <li><a href="#tab1">모라이SIM</a></li>
+            <li class="on"><a href="#tab2">메타버스</a></li>
+          </ul>
+        </div>
 
-        <div class="tb-wrap isData mt20">
+        <div class="tb-wrap mt20">
           <table class="tb-list" summary="사용자 정보 목록">
             <colgroup>
               <col width="80" />
-              <col width="*" />
-              <col width="120" />
-              <col width="340" />
-              <col width="340" />
-              <col width="160" />
-              <col width="140" />
+              <col width="170" />
+              <col width="180" />
+              <col width="180" />
+              <col width="" />
+              <col width="" />
+              <col width="" />
+              <col width="" />
             </colgroup>
             <thead>
               <tr>
@@ -199,12 +153,13 @@
                     <label for="chk-tb-all">전체 체크</label>
                   </span>
                 </th>
-                <th scope="col">제목</th>
-                <th scope="col">이름</th>
-                <th scope="col">기관</th>
-                <th scope="col">권한명</th>
-                <th scope="col">전화번호</th>
-                <th scope="col">등록일</th>
+                <th scope="col">수행일시</th>
+                <th scope="col">사용자ID</th>
+                <th scope="col">시물레이션ID</th>
+                <th scope="col">차량주행 로그</th>
+                <th scope="col">센싱정보</th>
+                <th scope="col">객체정보</th>
+                <th scope="col">라벨링정보</th>
               </tr>
             </thead>
             <tbody>
@@ -215,14 +170,13 @@
                     <label for="chk-tb-1">체크1</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -231,14 +185,13 @@
                     <label for="chk-tb-2">체크2</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -247,14 +200,13 @@
                     <label for="chk-tb-3">체크3</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십</a>
-                </td>
-                <td>홍길동</td>
-                <td>일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십</td>
-                <td>일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔20일이삼사오육칠팔구십</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -263,14 +215,13 @@
                     <label for="chk-tb-4">체크4</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">테이블 선택시 체크박스 선택/ 재클릭시 해제- 선택된 상태인 경우 호버스타일 고정</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -279,14 +230,13 @@
                     <label for="chk-tb-5">체크5</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -295,14 +245,13 @@
                     <label for="chk-tb-6">체크6</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -311,14 +260,13 @@
                     <label for="chk-tb-7">체크7</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -327,14 +275,13 @@
                     <label for="chk-tb-8">체크8</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -343,14 +290,13 @@
                     <label for="chk-tb-9">체크9</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
               <tr>
                 <td class="t-center">
@@ -359,14 +305,13 @@
                     <label for="chk-tb-10">체크10</label>
                   </span>
                 </td>
-                <td>
-                  <a href="#">abc@mqnic.com</a>
-                </td>
-                <td>홍길동</td>
-                <td>국-6</td>
-                <td>최상위 관리자</td>
-                <td>010-0000-0000</td>
-                <td>2024.00.00</td>
+                <td>2023-09-13 15:33</td>
+                <td>mqnic</td>
+                <td>Meta_test_001</td>
+                <td><a class="active" href="">객체명_주행 로그다운로드</a></td>
+                <td><a class="active" href="">센서 로우 데이터 다운로드</a></td>
+                <td><a class="active" href="">객체 정보 다운로드</a></td>
+                <td><a class="active" href="">라벨링 정보 다운로드</a></td>
               </tr>
             </tbody>
           </table>
