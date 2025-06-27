@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>국7 메타버스 - 프린트 팝업</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"><!-- 추가 -->
+  <style>
+/* reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
+blockquote,pre,abbr,address,cite,code,del,dfn,em,img,
+ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,footer,header,
+menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0}
+table{border:0;border-spacing:0;border-collapse:collapse;}
+ul,ol,li,dl,dd,dt{list-style:none}
+img,fieldset,iframe{border:0 none}
+img{vertical-align:top;max-width:100%;}
+textarea{resize:none}
+input,select,textarea,button{font-size:100%;vertical-align:top;outline:none;-webkit-appearance:none;-webkit-border-radius:0px;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+address,strong,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}
+body{-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0)}
+
+/* box-sizing */
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+
+/* base - IE8~7 */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+
+/* base - input */
+input{color:#000}
+input:checked[type="checkbox"]{background-color:#666;-webkit-appearance:checkbox}
+input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}
+/* input[type="password"]{font-family:dotum,'돋움',sans-serif;} */
+/* input[type="password"]::-webkit-input-placeholder{font-family:'Noto Sans KR';} */
+button{border:0;background-color:transparent;padding:0;cursor:pointer}
+input[type="radio"] {-webkit-appearance:radio;}
+input[type="checkbox"] {-webkit-appearance:checkbox;}
+input[type=file], input[type=file]::-webkit-file-upload-button{cursor:pointer;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}/* Chrome, Safari, Edge, Opera */
+input[type=number]{-moz-appearance:textfield;}/* Firefox */
+
+/* placeholder */
+::-webkit-input-placeholder{color:#778298;font-weight:500;}
+::-moz-placeholder{color:#778298;font-weight:500;}
+:-ms-input-placeholder{color:#778298;font-weight:500;}
+:-moz-placeholder{color:#778298;font-weight:500;}
+
+/* base - a */
+a{color:#000}
+a,a:link{text-decoration:none;}
+a:visited{text-decoration:none}
+a:hover,a:focus{ text-decoration:none;}
+a:active{text-decoration:none}
+
+/* base - body */
+body{-webkit-font-smoothing: antialiased;}
+body,input,select,textarea,button{font:14px/1 "Pretendard", "Malgun Gothic", "맑은 고딕", "돋움", sans-serif;color:#000;letter-spacing:-.5px;font-weight:400;}
+
+/* common */
+.t-left{text-align:left !important;}
+.t-center{text-align:center !important;}
+.t-right{text-align:right !important;}
+
+.mt8{margin-top:8px !important;}
+.mt20{margin-top:20px !important;}
+.mt10{margin-top:10px !important;}
+
+@media print {
+  body, div{position: relative;}
+  #wrap{background-color:#fff !important;height:auto !important;}
+  #header, .content-wrap{background-color: #fff;}
+  #header, #container, .popup-wrap, .popup-dimm, .left-wrap, .content-wrap{display:none;}
+  .popup-report{margin-left:0;left:0;top:0;width:1077px;position:relative;}
+  .popup-report .header{display:none;}
+  .popup-report *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+
+
+.popup-report{position:relative;width:760px;z-index:10;}
+.popup-report .header{display:flex;justify-content:flex-end;padding:8px 16px;background-color:#1d1e22;}
+.popup-report .header ul{display:flex;gap:0 16px;}
+.popup-report .header ul li a{display:block;width:24px;height:24px;}
+.popup-report .header ul li .print{background:url(../img/meta/ico-24-print.svg) 50% 50% no-repeat;}
+.popup-report .header ul li .pdf{background:url(../img/meta/ico-24-pdf.svg) 50% 50% no-repeat;}
+.popup-report .header ul li .cancel{background:url(../img/meta/ico-24-cancel.svg) 50% 50% no-repeat;}
+.popup-report .content{padding:30px 40px;background-color:#fff;}
+.popup-report .content .tit{font-size:22px;line-height:1.5;color:#212332;text-align:center;margin-bottom:30px;}
+.popup-report .content .tb-wrap{border:2px solid #212332;border-radius:8px;}
+.popup-report .content .tb-wrap table{table-layout:fixed;width:100%;}
+.popup-report .content .tb-wrap table th, .popup-report .content .tb-wrap table td{font-size:12px;line-height:1.5;border-top:1px solid #212332;}
+.popup-report .content .tb-wrap table tr:first-child th,
+.popup-report .content .tb-wrap table tr:first-child td{border-top:0;}
+.popup-report .content .tb-wrap table th{color:#34374c;background-color:#f4f6f9;padding:12px;font-weight:400;text-align:left;}
+.popup-report .content .tb-wrap table td{padding:12px 10px;font-weight:bold;color:#212332;}
+.popup-report .content .tb-wrap table td.red{color:#ef4345;}
+.popup-report .content .tb-wrap table td span{font-weight:normal;}
+.popup-report .content .s-tit{font-size:14px;line-height:1.5;font-weight:500;color:#212332;margin:20px 0 10px;}
+.popup-report .content .footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;}
+.popup-report .content .footer .date{font-size:14px;line-height:1.5;color:#212332;}
+
+.popup-report .content .tb-wrap table.list th, .popup-report .content .tb-wrap table.list td{text-align:center;border-left:1px solid #212332;}
+.popup-report .content .tb-wrap table.list th:first-child, .popup-report .content .tb-wrap table.list td:first-child{border-left:0;}
+.popup-report .content .tb-wrap table td{height:42px;}
+.popup-report .content .tb-wrap table td .pic-area{display:flex;flex-wrap:wrap;gap:8px 10px;}
+.popup-report .content .tb-wrap table td .pic-area .pic{width:calc(50% - 5px);background-color: #2a2d3e;display:flex;justify-content: center;align-items: center;}
+
+.popup-report.ver-dotum .content{font-family:'Dotum';}
+.popup-report.ver-dotum .content .top{margin-bottom:25px;font-size:12px;}
+.popup-report.ver-dotum .content .tit{font-family:'Pretendard';margin-bottom:20px;font-weight:bold;letter-spacing: 1.68px;font-size:24px;line-height:1;}
+.popup-report.ver-dotum .content .footer{margin-top:8px;justify-content:flex-end;}
+.popup-report.ver-dotum .content .footer p{font-size:12px;color:#212332;}
+.popup-report.ver-dotum .content .s-tit{margin-bottom:4px;}
+
+.tb-dotum{border:1px solid #7e7e7e;}
+.tb-dotum.prev{border-bottom:0;}
+.tb-dotum.next{border-top:1px solid #b7b7b7;}
+.tb-dotum table{table-layout:fixed;width:100%;}
+.tb-dotum table tr:first-child th, .tb-dotum table tr:first-child td{border-top:
+0;}
+.tb-dotum table th, .tb-dotum table td{font-size:14px;/*line-height:1.2;*/color:#212332;border-top:1px solid #b7b7b7;border-left:1px solid #b7b7b7;padding:1px 4px;height:25px;vertical-align:middle;text-align:center;font-weight:400;}
+.tb-dotum table th:first-child{border-left:0;}
+.tb-dotum table th.bl, .tb-dotum table td.bl{border-left:1px solid #b7b7b7;}
+.tb-dotum table td .count-list{display:flex;justify-content:flex-start;gap:0 2px;}
+.tb-dotum table td .count-list li{margin-left:10px;}
+.tb-dotum table td .count-list li:first-child{margin-left:0;}
+.tb-dotum table td .count-list li em{min-width:26px;display:inline-block;}
+.tb-dotum table td.description{height:129px;}
+.tb-dotum table td.pic{height:237px;font-size:14px;color:#898988;}
+.tb-dotum table td.pic:first-child{border-left:0;}
+.tb-dotum table td.car{overflow:hidden;}
+.tb-dotum table td.car [class*=car_]{display:block;white-space: nowrap;text-overflow: ellipsis;width:100%;}
+.tb-dotum table td.message{text-align:left;border-left:0;padding:8px;}
+
+.popup-report .tit-approval{display:flex;justify-content: space-between;}
+.popup-report .tit-approval .tit{padding-top:15px;font-weight:600;}
+.popup-report .approval-area{display:flex;border:1px solid #212332;font-family:'Pretendard';}
+.popup-report .approval-area > li{display:flex;align-items:center;border-left:1px solid #212332;font-size:12px;text-align:center;width:80px;}
+.popup-report .approval-area > li.label{padding:0 5.5px;border-left:0;width:23px;}
+.popup-report .approval-area > li dl{flex-grow:1;}
+.popup-report .approval-area > li dt{padding:3px 0;}
+.popup-report .approval-area > li dd{border-top:1px solid #212332;height:60px;width:100%;display:flex;justify-content:center;align-items: center;}
+.popup-report .tx-report{margin-top:20px;font-size:14px;color:#212332;}
+.popup-report .tx-report strong{font-weight:600;}
+.popup-report .content .tb-wrap .pics{display:flex;gap:8px 10px;flex-wrap:wrap;}
+.popup-report .content .tb-wrap .pics > li{width:calc(50% - 5px);display:flex;justify-content: center;align-items: center;}
+.popup-report .content .footer.right{flex-direction:row-reverse;}
+.popup-report .content .tb-tail{margin-top:4px;text-align:center;font-size:14px;color:#212332;line-height:1.57;}
+
+.popup-report.renew .tit-approval .tit{padding:8px 0;font-weight:600;text-align:center;width:340px;background-color:#efefef;font-size:28px;margin-bottom:0;align-self: flex-start;}
+.popup-report.renew .approval-area > li{font-size:13px;color:#212332;font-weight:700;}
+.popup-report.renew .tb-dotum table th{background-color:#f2f2f2;font-weight:700;}
+.popup-report.renew .tb-dotum table th, .popup-report.renew .tb-dotum table td{border-color:#7e7e7e;}
+.popup-report.renew .tb-dotum table th.fw-normal{font-weight:normal;}
+.popup-report.renew .tb-dotum table td:first-child{border-left:0;font-weight:bold;}
+.popup-report.renew .tb-dotum table td.message{font-weight:normal;}
+.popup-report.renew .s-tit{line-height:1.2;margin-top:14px;font-weight:bold;}
+.popup-report.renew .flex-area{display:flex;justify-content: space-between;gap:0 16px;margin-top:17px;}
+.popup-report.renew .flex-area .s-tit{margin-top:0;}
+.popup-report.renew .content .tb-tail{font-weight:bold;}
+.popup-report.renew .tx-report{margin-top:17px;font-weight:bold;}
+.popup-report.renew .tx-report + .flex-area{margin-top:4px;}
+.popup-report.renew .f-logo{text-align:right;margin-top:8px;}
+.popup-report.renew .tb-dotum.th-blue table th{background-color: #ebf0f6;}
+.popup-report.renew .tb-dotum table thead + tbody tr:first-child td{border-top:1px solid #7e7e7e;}
+.tb-dotum table th.bl0, .tb-dotum table td.bl0{border-left:0;}
+.tb-dotum-flex{display:flex;justify-content: space-between;gap:0 2px;border:1px solid #7e7e7e;}
+.tb-dotum-flex .tb-dotum{flex:1;border:0;}
+.tb-dotum-flex .tb-dotum:first-child{border-right:1px solid #7e7e7e;}
+.tb-dotum-flex .tb-dotum:last-child{border-left:1px solid #7e7e7e;}
+
+.popup-report .meta-content .tit{font-size:34px;font-weight:400;text-align:left;}
+.popup-report .meta-content .tit strong{color:#1c4d9c;font-weight:700;}
+
+.reporting-results{display:flex;justify-content: space-between;gap:0 14px;}
+.reporting-results .results{flex-grow:1;}
+.reporting-results .img{border-radius:8px;overflow:hidden;width:248px;flex-shrink:0;}
+.reporting-results .date{font-size:14px;font-weight:700;color:#fff;padding: 4px 12px;border-radius: 16px;background-color: #2962ff;display:inline-block;line-height:1.5;} 
+.reporting-results .score{font-size:18px;font-weight:500;color:#4f526b;margin-top:20px;line-height:1.1;}
+.reporting-results .score .num{font-size:44px;font-weight:700;}
+.reporting-results .score .num.type-1{color:#ea0487;}
+.reporting-results .score .num.type-2{color:#ff852e;}
+.reporting-results .score .num.type-3{color:#2dbe85;}
+.reporting-results .reporting-detail{margin-top:21px;}
+
+.reporting-detail{display:flex;gap:0 14px;width:100%;margin-top:16px;}
+.reporting-detail > li{padding:16px;background-color:#edf0f5;border-radius:8px;}
+.reporting-detail li{width:33.333%;}
+.reporting-detail li span{display:block;line-height:1.5;}
+.reporting-detail li .label{font-size:14px;color:#4f526b;}
+.reporting-detail li .value{font-size:16px;font-weight:bold;color:#000;margin-top:5px;}
+.reporting-info{margin-top:20px;}
+.reporting-detail li .detail-list{display:flex;gap:0 6px;margin-top:5px;}
+.reporting-detail li .detail-list li{background-color:#fff;padding:8px 12px;border-radius:4px;flex:1 1 auto;}
+
+.reporting-info > li{display:flex;line-height:1.5;font-size:14px;margin-top:10px;align-items: center;}
+.reporting-info > li:first-child{margin-top:0;}
+.reporting-info > li .label{width:120px;display:flex;gap:0 4px;align-items: center;color:#4f526b;flex-shrink: 0;}
+.reporting-info > li .label::before{content:'';display:block;width:16px;height:16px;background:url('/img/meta/ico-print-but-bg.svg') 50% 50% no-repeat;}
+.reporting-info > li .info{font-weight:500;color:#1d1e22;flex-grow: 1;}
+
+.popup-report .meta-content .sub-tit, .chart-wrapper{margin-top:60px;}
+.popup-report .meta-content .sub-tit{font-size: 16px;font-weight: 700;color:#4f526b;}
+.chart-wrapper .chart-tit{display:flex;justify-content: space-between;margin-bottom:10px;}
+.chart-wrapper .chart-tit h3{font-size:16px;line-height:24px;color:#4f526b;font-weight:700;}
+.chart-wrapper .chart-tit p{font-size:14px;color:#1d1e22;}
+.chart-wrapper .chart-tit p .result{margin-left:20px;}
+.chart-wrapper .chart-tit p .result em{color:#2962ff;font-weight:700;}
+.chart-wrapper .chart-area{display: flex; gap: 20px;}
+  </style>
+</head>
+<body>
+  <!-- <div class="popup-report ver-dotum" id="report5_1" > -->
+  <div class="popup-report" id="report1">
+    <div class="header">
+      <ul>
+        <li><a href="javascript:void(0);" class="pdf"></a></li>
+        <li><a href="javascript:void(0);" class="print" onclick="window.print();"></a></li>
+        <li><a href="javascript:void(0);" class="cancel"></a></li>
+      </ul>
+    </div>
+    <div class="content meta-content">
+      <p class="tit"><strong>메타버스 체험</strong> 결과 레포팅</p>
+
+      <div class="reporting-results">
+        <div class="results">
+          <span class="date">2025-05-17 15:31</span>
+          <p class="score">메타버스 체험 종합점수는 <br /><span class="num type-1">48</span>점 입니다</p>
+          <ul class="reporting-detail">
+            <li>
+              <span class="label">이용자명</span>
+              <span class="value">홍길동</span>
+            </li>
+            <li>
+              <span class="label">이용시간</span>
+              <span class="value">13분</span>
+            </li>
+            <li>
+              <span class="label">시뮬레이션 타입</span>
+              <span class="value">운전자</span>
+            </li>
+          </ul>
+        </div>
+        <div class="img"><img src="https://placehold.co/248x220" alt="placeholder image" /></div>
+      </div><!-- .reporting-results -->
+      
+      <ul class="reporting-info">
+        <li>
+          <span class="label">시나리오명</span>
+          <span class="info">안전운전_난이도_하하하</span>
+        </li>
+        <li>
+          <span class="label">시나리오 설명</span>
+          <span class="info">기본 안전운전 테스트 시나리오입니다. 작성한 설명이 모두 표출되어 나타납니다.</span>
+        </li>
+      </ul>
+
+      <p class="sub-tit">이용자 정보</p>
+
+      <ul class="reporting-detail">
+          <li style="width: 130px; flex-shrink: 0;">
+            <span class="label">이용자 유형</span>
+            <span class="value">운전자</span>
+          </li>
+          <li style="width: auto; flex-grow: 1;">
+            <span class="label">주행형태</span>
+            <ul class="detail-list">
+              <li>
+                <span class="label">과속</span>
+                <span class="value">00회</span>
+              </li>
+              <li>
+                <span class="label">급제동</span>
+                <span class="value">00회</span>
+              </li>
+              <li>
+                <span class="label">급가속</span>
+                <span class="value">00회</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+      <ul class="reporting-info">
+        <li>
+          <span class="label">추천 방식</span>
+          <span class="info">전방 차량과의 간격을 일정하게 유지하고, 차선 변경 시 방향지시등을 통해 주변 차량에게 이용자님의 진로를 공유해주세요</span>
+        </li>
+      </ul>
+
+      <div class="chart-wrapper">
+        <div class="chart-tit">
+          <h3>차량 주행 차트</h3>
+          <p>
+            <span class="label">평균주행속도</span>
+            <span class="result"><em>36.3</em> km/h</span>
+          </p>
+        </div>
+        <div class="chart-area">
+          <div id="speedChart" style="width: 216px; height: 216px;"></div>
+          <div id="rotationChart" style="width: 216px; height: 216px;"></div>
+          <div id="accelChart" style="width: 216px; height: 216px;"></div>
+        </div>
+      </div>
+    </div><!-- .content -->
+  </div><!-- .popup-report -->  
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const xData = Array.from({ length: 20 }, (_, i) => i + 1);
+    const speedData = [5, 10, 15, 20, 30, 45, 40, 35, 30, 20, 10, 15, 25, 30, 20, 10, 15, 25, 35, 40];
+    const rotationData = [0, 45, 90, 180, -90, -180, 90, 0, -45, 180, -90, 90, 0, -180, 90, 0, -45, 45, 90, 0];
+    const accelData = [0, 0.1, 0.3, 0.7, 0.9, 0.6, 0.4, 0.2, 0.1, 0.05, 0.2, 0.4, 0.6, 0.7, 0.5, 0.3, 0.2, 0.1, 0.3, 0.2];
+
+    function createChart(domId, title, data, yMin, yMax, unit) {
+      const chart = echarts.init(document.getElementById(domId));
+      chart.setOption({
+        tooltip: { trigger: 'axis' },
+        xAxis: { type: 'category', data: xData, show: false },
+        yAxis: { type: 'value', min: yMin, max: yMax },
+        grid: { left: 30, right: 10, top: 10, bottom: 30 },
+        series: [{
+          name: title,
+          type: 'line',
+          data: data,
+          smooth: true,
+          lineStyle: { color: '#0033cc', width: 2 },
+          symbol: 'none'
+        }],
+        title: {
+          text: title + (unit ? `(${unit})` : ''),
+          left: 'center',
+          top: 'bottom',
+          textStyle: { fontSize: 12 }
+        }
+      });
+    }
+    createChart('speedChart', '속도', speedData, 0, 60, 'km/h');
+    createChart('rotationChart', '회전', rotationData, -360, 360, '°');
+    createChart('accelChart', '감속', accelData, 0, 1, '');
+  </script>
+</body>
+</html>

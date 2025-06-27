@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발 - 3차</title>
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tui-time-picker.js"></script>
+  <script src="js/tui-date-picker.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="js/billboard.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/ui.js"></script>
+</head>
+<body class="search ver_light"><!-- 라이트 모드(.ver_light) -->
+  <div id="wrap">
+    <div id="header">
+      <h1 class="logo"><a href="#"><span>통합 가상시험환경</span></a></h1>
+      <ul id="gnb" class="admin" data-dp1="1" data-dp2="2">
+        <li class="dep1">
+          <a href="#"><span>가상시험환경 모니터링</span></a>
+          <ul>
+            <li><a href="#">서버 인프라 모니터링</a></li>
+            <li><a href="#">시뮬레이션 수행 현황</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 통계</span></a>
+          <ul>
+            <li><a href="#">시뮬레이션 이력</a></li>
+            <li><a href="#">시뮬레이션 결과요약</a></li>
+            <li><a href="#">시뮬레이션 상세결과</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 평가</span></a>
+          <ul>
+            <li><a href="#">통합 레포팅</a></li>
+            <li><a href="#">성능평가</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>고객센터</span></a>
+          <ul>
+            <li><a href="#"><span>Q&amp;A</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>사용자관리</span></a>
+          <ul>
+            <li><a href="#">사용자 관리</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="utilmenu">
+        <li class="user"><a href="#"></a></li>
+        <li class="logout"><a href="#"></a></li>
+      </ul>
+      <div class="ui-wrap">
+        <div class="ui-header">
+          <p class="tit">사용자 정보</p>
+          <a href="#" class="btn-close"></a>
+        </div>
+        <div class="ui-content">
+          <span class="face" style="background:url(img/icon-userdata.png) 0 0 no-repeat;"></span>
+          <p class="email">abc123@mqnic.com</p>
+          <ul class="mobile">
+            <li>홍길동</li>
+          </ul>
+          <ul class="info">
+            <li>
+              <span class="label">기관</span>
+              <span class="result">화성시 1234567부서</span>
+            </li>
+            <li>
+              <span class="label">권한</span>
+              <span class="result">12345</span>
+            </li>
+          </ul>
+          <div class="modify">
+            <a href="#">내정보 변경</a>
+          </div>
+        </div>
+      </div>
+      <div class="submenu-area"></div>
+    </div><!-- #header -->
+    <div id="container">
+      <div class="tit-wrap">
+        <h3 class="tit appmanagement">시나리오 목록</h3>
+        <ul class="navi-area">
+          <li class="home"><a href="#">홈</a></li>
+          <li><a href="#">시뮬레이션 통계</a></li>
+          <li class="current"><a href="#">시뮬레이션 목록</a></li>
+        </ul>
+      </div><!-- .tit-wrap -->
+      <div class="content-wrap">
+        
+        <div class="search-area" style="max-width: 588px;">
+          <ul class="form-list">
+            <li>
+              <label for="sch_bar">시나리오 명</label>
+              <div class="input-wrap">
+                <input type="text" class="input-base tp2" placeholder="시나리오 명 입력" id="sch_bar" />
+                <button class="btn-del">삭제</button>
+              </div>
+            </li>
+            <li class="btn">
+              <a href="#" class="btn-search"></a>
+            </li>
+          </ul>
+        </div><!-- .search-area -->
+
+        <div class="top-area mt40">
+          <span></span>
+          <div class="btns-wrap">
+            <span class="btn-base tp1"><a href="#"><span class="ico down">엑셀 다운로드</span></a></span>
+          </div>
+        </div>
+
+        <div class="tb-wrap mt20">
+          <table class="tb-list" summary="사용자 정보 목록">
+            <colgroup>
+              <col width="80" />
+              <col width="200" />
+              <col width="" />
+              <col width="200" />
+              <col width="200" />
+              <col width="200" />
+              <col width="200" />
+              <col width="200" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" class="t-center">
+                  <!--<span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-all" />
+                    <label for="chk-tb-all">전체 체크</label>
+                  </span>-->
+                </th>
+                <th scope="col">시뮬레이션 타입</th>
+                <th scope="col">시나리오 명</th>
+                <th scope="col" class="center">구간</th>
+                <th scope="col" class="center">시나리오 성공률</th>
+                <th scope="col" class="center">만족도 점수</th>
+                <th scope="col" class="center">평가수</th>
+                <th scope="col" class="center">응답률</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-1" />
+                    <label for="chk-tb-1">체크1</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-2" />
+                    <label for="chk-tb-2">체크2</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-3" />
+                    <label for="chk-tb-3">체크3</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-4" />
+                    <label for="chk-tb-4">체크4</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-5" />
+                    <label for="chk-tb-5">체크5</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-6" />
+                    <label for="chk-tb-6">체크6</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-7" />
+                    <label for="chk-tb-7">체크7</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-8" />
+                    <label for="chk-tb-8">체크8</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-9" />
+                    <label for="chk-tb-9">체크9</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+              <tr>
+                <td class="t-center">
+                  <span class="chk-base chk-only">
+                    <input type="checkbox" id="chk-tb-10" />
+                    <label for="chk-tb-10">체크10</label>
+                  </span>
+                </td>
+                <td>운전자</td>
+                <td>mqnic</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td class="center">5/5</td>
+                <td class="center">20</td>
+                <td class="center">90.0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- .tb-wrap -->
+
+        <div class="total-wrap mt20">
+          <div class="total">
+            <span class="label">Total</span>
+            <span class="count">188</span>
+          </div>
+          <div class="paging-area">
+            <a href="#" class="btn-first disabled"></a>
+            <a href="#" class="btn-prev disabled"></a>
+            <div class="paging">
+              <input class="current" type="text" value="1" />
+              <span class="line">/</span>
+              <span class="num">19</span>
+            </div>
+            <a href="#" class="btn-next"></a>
+            <a href="#" class="btn-last"></a>
+          </div>
+        </div><!-- .total-wrap -->
+
+      </div><!-- .content-wrap -->
+    </div><!-- #container -->
+    <div id="footer">
+      <p class="copy">COPYRIGHT ©️ 2024 LivingLab. ALL RIGHTS RESERVED.</p>
+      <a href="#" class="btn-top"></a>
+    </div><!-- #footer -->
+
+    <div class="popup-wrap z-anim mfp-hide" id="popup-history" data-width="356">
+      <div class="tit-area">
+        <p>평가이력</p>
+      </div>
+      <div class="history-area">
+        <p class="tit">안전운전_난이도_하</p>
+        <div class="detail">
+          <ul class="list">
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                  </div>
+                  <span class="num">5.5</span>
+                </div>
+              </div>
+              <p class="review">적당한 구간과 차량 분포로 난이도에 적합한 시나리오였어요.</p>
+            </li>
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                  </div>
+                  <span class="num">5.5</span>
+                </div>
+              </div>
+              <p class="review">조금 더 오래하고 싶었는데 생각보다 짧았지만 그래도 재밌게했네요. 조금 더 오래하고 싶었는데 생각보다 짧았지만 그래도 재밌게했네요.</p>
+            </li>
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-05.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-0.svg" alt=""></span>
+                  </div>
+                  <span class="num">3.5</span>
+                </div>
+              </div>
+              <p class="review">1등 할때까지 했는데 더 이상 높은 점수는 안나오네요.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- .popup-wrap -->
+  </div><!-- #wrap -->
+
+  <script>
+    var Qpopup = $.urlParam('popup');
+    if (Qpopup) {
+      $.magnificPopup.open(getOptions('#popup-' + Qpopup));
+    }
+  </script>
+</body>
+</html>
+
+

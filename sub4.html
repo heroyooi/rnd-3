@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발 - 3차</title>
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tui-time-picker.js"></script>
+  <script src="js/tui-date-picker.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="js/billboard.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/ui.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <h1 class="logo"><a href="#"><span>통합 가상시험환경</span></a></h1>
+      <ul id="gnb" class="admin" data-dp1="1" data-dp2="2">
+        <li class="dep1">
+          <a href="#"><span>가상시험환경 모니터링</span></a>
+          <ul>
+            <li><a href="#">서버 인프라 모니터링</a></li>
+            <li><a href="#">시뮬레이션 수행 현황</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 통계</span></a>
+          <ul>
+            <li><a href="#">시뮬레이션 이력</a></li>
+            <li><a href="#">시뮬레이션 결과요약</a></li>
+            <li><a href="#">시뮬레이션 상세결과</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 평가</span></a>
+          <ul>
+            <li><a href="#">통합 레포팅</a></li>
+            <li><a href="#">성능평가</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>고객센터</span></a>
+          <ul>
+            <li><a href="#"><span>Q&amp;A</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>사용자관리</span></a>
+          <ul>
+            <li><a href="#">사용자 관리</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="utilmenu">
+        <li class="user"><a href="#"></a></li>
+        <li class="logout"><a href="#"></a></li>
+      </ul>
+      <div class="ui-wrap">
+        <div class="ui-header">
+          <p class="tit">사용자 정보</p>
+          <a href="#" class="btn-close"></a>
+        </div>
+        <div class="ui-content">
+          <span class="face" style="background:url(img/icon-userdata.png) 0 0 no-repeat;"></span>
+          <p class="email">abc123@mqnic.com</p>
+          <ul class="mobile">
+            <li>홍길동</li>
+          </ul>
+          <ul class="info">
+            <li>
+              <span class="label">기관</span>
+              <span class="result">화성시 1234567부서</span>
+            </li>
+            <li>
+              <span class="label">권한</span>
+              <span class="result">12345</span>
+            </li>
+          </ul>
+          <div class="modify">
+            <a href="#">내정보 변경</a>
+          </div>
+        </div>
+      </div>
+      <div class="submenu-area"></div>
+    </div><!-- #header -->
+    <div id="starWrapper">
+      <canvas id="warpCanvas"></canvas>
+      <div class="content_wrap">
+        <ul class="step-list">
+          <li class="label on">설정입력</li>
+          <li class="arrow on"></li>
+          <li class="label on">메타버스 연동</li>
+          <li class="arrow on"></li>
+          <li class="label">체험준비 완료</li>
+        </ul>
+        <div class="content">
+          <div class="con_obj bg">
+            <ul class="form_area">
+              <li>
+                <span class="label">이용자명</span>
+                <div class="input-wrap">
+                  <input type="text" class="input-base tp1 ver_new" placeholder="이용자명을 입력해주세요" value="이용자" disabled>
+                  <button class="btn-del">삭제</button>
+                </div>
+              </li>
+              <li>
+                <span class="label">나이</span>
+                <div class="input-wrap">
+                  <input type="text" class="input-base tp1 ver_new" placeholder="나이를 입력해주세요" value="20" disabled>
+                  <button class="btn-del">삭제</button>
+                </div>
+              </li>
+              <li>
+                <span class="label">성별</span>
+                <div class="input-wrap">
+                  <span class="select-base ver_new disabled">
+                    <span class="value"></span>
+                    <select>
+                      <option value="0" selected>선택</option>
+                      <option value="1">남성</option>
+                      <option value="2">여성</option>
+                    </select>
+                  </span>
+                </div>
+              </li>
+
+              <li>
+                <span class="label">운전경력</span>
+                <div class="input-wrap w-unit">
+                  <div class="input-area">
+                    <input type="text" class="input-base tp1 ver_new" placeholder="운전경력을 입력해주세요" value="10" disabled>
+                    <button class="btn-del">삭제</button>
+                  </div>
+                  <span class="unit">년</span>
+                </div>
+              </li>
+
+              <li>
+                <span class="label">연간 주행거리</span>
+                <div class="input-wrap w-unit">
+                  <div class="input-area">
+                    <input type="text" class="input-base tp1 ver_new" placeholder="주행거리를 입력해주세요" value="10" disabled>
+                    <button class="btn-del">삭제</button>
+                  </div>
+                  <span class="unit">KM</span>
+                </div>
+              </li>
+              
+              <li>
+                <span class="label">시뮬레이션 타입</span>
+                <div class="input-wrap">
+                  <span class="select-base ver_new disabled">
+                    <span class="value"></span>
+                    <select>
+                      <option value="0">선택</option>
+                      <option value="1" selected>20</option>
+                      <option value="2">값2</option>
+                    </select>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <span class="label">시뮬레이션 맵</span>
+                <div class="input-wrap">
+                  <span class="select-base ver_new disabled">
+                    <span class="value"></span>
+                    <select>
+                      <option value="0">선택</option>
+                      <option value="1" selected>새솔동</option>
+                      <option value="2">값2</option>
+                    </select>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <span class="label">시나리오 명</span>
+                <div class="input-wrap">
+                  <span class="select-base ver_new disabled">
+                    <span class="value"></span>
+                    <select>
+                      <option value="0">선택</option>
+                      <option value="1" selected>안전운전_난이도_하</option>
+                      <option value="2">값2</option>
+                    </select>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="con_obj bg">
+            <div class="con_box">
+              <div class="simul-box">
+                <p class="label">안전운전_난이도_하</p>
+                <p class="con">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십 일이삼사오육칠팔구십일이삼사오육칠팔구십 <br />일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</p>
+                <p class="pic"><img src="https://placehold.co/304x271" alt="placeholder image" width="304" height="271" /></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <span class="btn-base tp1 md reverse"><a href="#">이전</a></span>
+          <span class="btn-base tp1 md"><a href="#">체험시작</a></span>
+        </div>
+      </div>
+    </div><!-- #starWrapper -->
+
+    <div id="footer">
+      <p class="copy">COPYRIGHT © 2025 LivingLab. ALL RIGHTS RESERVED.</p>
+      <a href="#" class="btn-top"></a>
+    </div><!-- #footer -->
+  </div><!-- #wrap -->
+  <script src="/js/starwars.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자율차-일반차 혼재상황 대비 AI기반 자율주행모빌리티 운영 플랫폼 개발 - 3차</title>
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/tui-time-picker.js"></script>
+  <script src="js/tui-date-picker.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="js/billboard.js"></script>
+  <script src="js/swiper.js"></script>
+  <script src="js/ui.js"></script>
+</head>
+<body class="search ver_light"><!-- 라이트 모드(.ver_light) -->
+  <div id="wrap">
+    <div id="header">
+      <h1 class="logo"><a href="#"><span>통합 가상시험환경</span></a></h1>
+      <ul id="gnb" class="admin" data-dp1="1" data-dp2="2">
+        <li class="dep1">
+          <a href="#"><span>가상시험환경 모니터링</span></a>
+          <ul>
+            <li><a href="#">서버 인프라 모니터링</a></li>
+            <li><a href="#">시뮬레이션 수행 현황</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 통계</span></a>
+          <ul>
+            <li><a href="#">시뮬레이션 이력</a></li>
+            <li><a href="#">시뮬레이션 결과요약</a></li>
+            <li><a href="#">시뮬레이션 상세결과</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>시뮬레이션 평가</span></a>
+          <ul>
+            <li><a href="#">통합 레포팅</a></li>
+            <li><a href="#">성능평가</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>고객센터</span></a>
+          <ul>
+            <li><a href="#"><span>Q&amp;A</span></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span>사용자관리</span></a>
+          <ul>
+            <li><a href="#">사용자 관리</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul id="utilmenu">
+        <li class="user"><a href="#"></a></li>
+        <li class="logout"><a href="#"></a></li>
+      </ul>
+      <div class="ui-wrap">
+        <div class="ui-header">
+          <p class="tit">사용자 정보</p>
+          <a href="#" class="btn-close"></a>
+        </div>
+        <div class="ui-content">
+          <span class="face" style="background:url(img/icon-userdata.png) 0 0 no-repeat;"></span>
+          <p class="email">abc123@mqnic.com</p>
+          <ul class="mobile">
+            <li>홍길동</li>
+          </ul>
+          <ul class="info">
+            <li>
+              <span class="label">기관</span>
+              <span class="result">화성시 1234567부서</span>
+            </li>
+            <li>
+              <span class="label">권한</span>
+              <span class="result">12345</span>
+            </li>
+          </ul>
+          <div class="modify">
+            <a href="#">내정보 변경</a>
+          </div>
+        </div>
+      </div>
+      <div class="submenu-area"></div>
+    </div><!-- #header -->
+    <div id="container">
+      <div class="tit-wrap">
+        <h3 class="tit appmanagement">시나리오 상세결과</h3>
+        <ul class="navi-area">
+          <li class="home"><a href="#">홈</a></li>
+          <li><a href="#">시뮬레이션 통계</a></li>
+          <li class="current"><a href="#">시뮬레이션 상세결과</a></li>
+        </ul>
+      </div><!-- .tit-wrap -->
+      <div class="content-wrap">
+        
+        <div class="search-area" style="max-width: 943px;">
+          <ul class="form-list">
+            <li class="datepicker">
+              <label for="search_date">조회일자</label>
+              <div class="input-wrap input-datepicker">
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus tui-custom">
+                  <input id="startpicker-input1" type="text" aria-label="Date">
+                  <span class="tui-ico-date"></span>
+                  <div id="startpicker-container1" style="margin-left: -1px;"></div>
+                </div>
+                <span class="bridge">~</span>
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus tui-custom">
+                  <input id="endpicker-input1" type="text" aria-label="Date">
+                  <span class="tui-ico-date"></span>
+                  <div id="endpicker-container1" style="margin-left: -1px;"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <label for="search_username">이용자명</label>
+              <div class="input-wrap">
+                <input type="text" class="input-base tp2" placeholder="이용자명 입력" id="search_username" />
+                <button class="btn-del">삭제</button>
+              </div>
+            </li>
+            <li class="btn">
+              <a href="#" class="btn-search"></a>
+            </li>
+          </ul>
+        </div><!-- .search-area -->
+
+        <div class="tb-wrap mt20">
+          <table class="tb-list" summary="사용자 정보 목록">
+            <colgroup>
+              <col width="300" />
+              <col width="200" />
+              <col width="200" />
+              <col width="200" />
+              <col width="" />
+              <col width="200" />
+              <col width="200" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">수행일시</th>
+                <th scope="col" class="center">이용자명</th>
+                <th scope="col" class="center">이용시간(분)</th>
+                <th scope="col" class="center">시뮬레이션 타입</th>
+                <th scope="col">시나리오 명</th>
+                <th scope="col" class="center">시나리오 성공여부</th>
+                <th scope="col" class="center">종합 점수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">김순구</td>
+                <td class="center">10</td>
+                <td class="center">운전자</td>
+                <td>안전운전_난이도_하</td>
+                <td class="center">성공</td>
+                <td class="center">94</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+              <tr>
+                <td>2023-09-13 15:33</td>
+                <td class="center">5/5</td>
+                <td class="center">3.1km</td>
+                <td class="center">20/20(100%)</td>
+                <td>mqnic</td>
+                <td class="center">20</td>
+                <td class="center">90%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- .tb-wrap -->
+
+        <div class="total-wrap mt20">
+          <div class="total">
+            <span class="label">Total</span>
+            <span class="count">188</span>
+          </div>
+          <div class="paging-area">
+            <a href="#" class="btn-first disabled"></a>
+            <a href="#" class="btn-prev disabled"></a>
+            <div class="paging">
+              <input class="current" type="text" value="1" />
+              <span class="line">/</span>
+              <span class="num">19</span>
+            </div>
+            <a href="#" class="btn-next"></a>
+            <a href="#" class="btn-last"></a>
+          </div>
+        </div><!-- .total-wrap -->
+
+      </div><!-- .content-wrap -->
+    </div><!-- #container -->
+    <div id="footer">
+      <p class="copy">COPYRIGHT ©️ 2024 LivingLab. ALL RIGHTS RESERVED.</p>
+      <a href="#" class="btn-top"></a>
+    </div><!-- #footer -->
+
+    <div class="popup-wrap z-anim mfp-hide" id="popup-history" data-width="356">
+      <div class="tit-area">
+        <p>평가이력</p>
+      </div>
+      <div class="history-area">
+        <p class="tit">안전운전_난이도_하</p>
+        <div class="detail">
+          <ul class="list">
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                  </div>
+                  <span class="num">5.5</span>
+                </div>
+              </div>
+              <p class="review">적당한 구간과 차량 분포로 난이도에 적합한 시나리오였어요.</p>
+            </li>
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                  </div>
+                  <span class="num">5.5</span>
+                </div>
+              </div>
+              <p class="review">조금 더 오래하고 싶었는데 생각보다 짧았지만 그래도 재밌게했네요. 조금 더 오래하고 싶었는데 생각보다 짧았지만 그래도 재밌게했네요.</p>
+            </li>
+            <li>
+              <div class="rate-wrap">
+                <span class="date">2025.00.00</span>
+                <div class="rate">
+                  <div class="score">
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-1.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-05.svg" alt=""></span>
+                    <span><img src="img/meta/ico-star-surface-0.svg" alt=""></span>
+                  </div>
+                  <span class="num">3.5</span>
+                </div>
+              </div>
+              <p class="review">1등 할때까지 했는데 더 이상 높은 점수는 안나오네요.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- .popup-wrap -->
+  </div><!-- #wrap -->
+
+  <script>
+    tui.DatePicker.localeTexts['customKey'] = {
+      titles: {
+          // days
+          DD: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          // daysShort
+          D: ['일', '월', '화', '수', '목', '금', '토'],
+          // months
+          MMMM: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+          // monthsShort
+          MMM: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+      },
+      titleFormat: 'yyyy.MMM',
+      todayFormat: '오늘 : yyyy.MMMM.dd',
+      date: 'Date',
+      time: 'Time'
+    };
+
+    var today1 = new Date();
+    var picker1 = tui.DatePicker.createRangePicker({
+      language: 'customKey',
+      startpicker: {
+        date: today1,
+        input: '#startpicker-input1',
+        container: '#startpicker-container1'
+      },
+      endpicker: {
+        date: today1,
+        input: '#endpicker-input1',
+        container: '#endpicker-container1'
+      },
+      selectableRanges: [
+        [today1, new Date(today1.getFullYear() + 1, today1.getMonth(), today1.getDate())]
+      ],
+      format: 'YYYY-MM-dd',
+      // showAlways: true,
+    });
+
+    picker1.on('change:end', () => {
+        console.log(123);
+    }); 
+
+    // S: 운영관리 테이블
+    GUI.checkAllUI('#chk-tb-all', 'table', (checked, allUi) => {
+      console.log('테이블 전체체크 유무 : ', checked, allUi);
+      if (checked) {
+        $('.tb-wrap.isData .tb-list tbody tr').addClass('on');
+      }
+      if (allUi && !checked) {
+        $('.tb-wrap.isData .tb-list tbody tr').removeClass('on');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
