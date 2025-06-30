@@ -58,16 +58,24 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-$('#btn_faster').on('click', function () {
+function fastStars() {
   speed = 10;
   starCount = 400;
   populateStars(starCount);
-});
+}
 
-$('#btn_slower').on('click', function () {
+function slowStars() {
   speed = 2;
   starCount = 100;
   populateStars(starCount);
+}
+
+$('#btn_faster').on('click', function () {
+  fastStars();
+});
+
+$('#btn_slower').on('click', function () {
+  slowStars();
 });
 
 // 초기 세팅
