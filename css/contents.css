@@ -133,6 +133,7 @@ body:not(.ver_light) .form_area li .select-base{width:100%;}
 .simul-box p.label{font-size:16px;font-weight:500;color:#fff; padding: 6px 24px;border-radius: 100px;background-color: #2dbe85;display:inline-block;line-height:1.5;}
 .simul-box p.con{font-size:14px;line-height:1.5;color:#2dbe85;margin-top:11px;}
 .simul-box p.pic{margin-top:12px;}
+.simul-box p.pic img{border-radius:8px;}
 
 .complete-area{margin:0 auto;width:400px;height:400px;display:flex;text-align:center;align-items:center;justify-content: center;padding: 40px;border-radius: 1000px;border: solid 1px #132f7f;background-color: rgba(19, 47, 127, 0.25);}
 .complete-area dd{font-size:24px;font-weight:500;color:#5c87ff;}

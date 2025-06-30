@@ -423,6 +423,7 @@
 .input-base.tp1.ver_new::-moz-placeholder{ color:#5c87ff;font-size:14px;}
 .input-base.tp1.ver_new:-ms-input-placeholder{ color:#5c87ff;font-size:14px;}
 .input-base.tp1.ver_new:-moz-placeholder{ color:#5c87ff;font-size:14px;}
+.input-base.tp1.ver_new:disabled{border:0;background-color: rgba(28, 77, 156, 0.25);color:#8eacff;}
 
 .select-base.ver_new:after {
   content: '';
@@ -452,6 +453,7 @@
   color: #8eacff;
 }
 
+
 .select-base.ver_new select {
   position: absolute;
   left: 0;
@@ -470,21 +472,23 @@
   cursor: pointer;
   color: #000;
 }
-
 .select-base.ver_new.disabled {
   cursor: default;
 }
-
 .select-base.ver_new.disabled select {
   display: none;
 }
-
 .select-base.ver_new.disabled .value {
   color: #8eacff;
   background-color: rgba(28, 77, 156, 0.25);
   border-color: rgba(28, 77, 156, 0.25);
 }
-
+.select-base.ver_new.focus:after {
+  background: url(../img/meta/ico-arrow-setdf-meta-w.svg) 0 0 no-repeat;
+}
+.select-base.ver_new.focus .value {
+  color: #fff;
+}
 
 .input-wrap.w-unit {
   display: flex;
@@ -495,6 +499,9 @@
 .input-wrap .input-area {
   position: relative;
   flex-grow: 1;
+}
+.form_area .input-wrap .btn-del {
+  background: url(../img/meta/ico-del-sw.svg) 50% 50% no-repeat;
 }
 
 .input-wrap .unit {

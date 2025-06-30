@@ -140,7 +140,7 @@ var GUI = window.GUI || (function(){
       }
 
       if (selectUI.length) {
-        selectUI.find('select').each(function(){
+        selectUI.find('select').each(function () {
           if ($(this).closest('.select-base').hasClass('disabled')) {
             return true;
           }
@@ -153,19 +153,28 @@ var GUI = window.GUI || (function(){
             $(this).closest('.select-base').addClass('active');
           }
         });
-        selectUI.find('select').on("change",function(){
-          if ($(this).closest('.select-base').hasClass('disabled')) {
-            return true;
-          }
-          if (parseInt($(this).val()) === 0) {
-            $(this).closest('.select-base').removeClass('active');
-          } else {
-            $(this).closest('.select-base').addClass('active');
-          }
-          $(this).prev().html($(this).find("option:selected").text());
-        }).prev().html(function() {
-          return $(this).next().find("option:selected").text();
-        });
+
+        selectUI.find('select')
+          .on("change", function () {
+            if ($(this).closest('.select-base').hasClass('disabled')) {
+              return true;
+            }
+            if (parseInt($(this).val()) === 0) {
+              $(this).closest('.select-base').removeClass('active');
+            } else {
+              $(this).closest('.select-base').addClass('active');
+            }
+            $(this).prev().html($(this).find("option:selected").text());
+          })
+          .on("focus", function () {
+            $(this).closest('.select-base').addClass('focus');
+          })
+          .on("blur", function () {
+            $(this).closest('.select-base').removeClass('focus');
+          })
+          .prev().html(function () {
+            return $(this).next().find("option:selected").text();
+          });
       }
       if (csSelectUI.length) {
         csSelectUI.each(function(){
