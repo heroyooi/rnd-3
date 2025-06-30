@@ -507,3 +507,20 @@
 }
 
 .tit-wrap .tit.appmanagement::before{background:url(../img/meta/icon-l-appmanagement.png) 0 0 no-repeat;}
+
+.popup-wrap .tit-area {
+  font-size: 16px;
+  font-weight: 700;
+  color: #4f526b;
+  padding: 12px 16px;
+  line-height: 24px;
+}
+
+.popup-wrap .con-area {
+  padding: 8px 16px 16px;
+}
+
+.btn-base.tp1 > * {
+  font-size: 14px;
+  font-weight: 500;
+}
