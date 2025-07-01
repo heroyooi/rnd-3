@@ -106,6 +106,11 @@ body{width:100%;}
 #starWrapper .content .con_obj .tit_area p em{font-style:normal;color:#5c87ff;font-weight:700;}
 
 .score_area_wrap{overflow:hidden;margin-top:16px;height:496px;position: relative;}
+.score_area_wrap .top_square{display:block;position: absolute;border-radius:16px;left:0;top:0;width:100%;height:76px;border: solid 2px #04bcff;z-index:3;}
+.score_area_wrap .top_square .top_edge{position: absolute;display:inline-block;width:8px;height:20px;background:url('/img/meta/ico-arrow-no.svg') 50% 50% no-repeat;top:50%;margin-top:-10px;}
+.score_area_wrap .top_square .top_edge.l{left:0;}
+.score_area_wrap .top_square .top_edge.r{right:0;transform:rotate(180deg);}
+
 .score_area.ver_swiping{touch-action: pan-y;}
 .score_area > li{padding: 20px 24px;border-radius: 16px;display:flex;justify-content:space-between;align-items: center;margin-top:8px;background-color: rgba(19, 47, 127, 0.25);position: relative;color:#fff;}
 .score_area > li.up{background-color: rgba(92, 135, 255, 0.25);}
